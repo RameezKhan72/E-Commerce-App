@@ -1,4 +1,4 @@
-This repository contains the complete source code for a full-stack e-commerce mobile application built with React Native (Expo) for the frontend and Node.js (Express) with MongoDB for the backend.
+﻿This repository contains the complete source code for a full-stack e-commerce mobile application built with React Native (Expo) for the frontend and Node.js (Express) with MongoDB for the backend.
 
 
 
@@ -224,63 +224,5 @@ Once the database operation is complete, the server sends a JSON response back t
 
 
 
-Screenshots
 
-
-
-(Please replace the placeholders below with your own screenshots of the application running.)
-
-
-
-1\. Login Screen
-
-\[Screenshot of the Login Screen]
-
-
-
-2\. Signup Screen
-
-\[Screenshot of the Signup Screen]
-
-
-
-3\. Home Screen
-
-\[Screenshot of the Home Screen with products]
-
-
-
-4\. Product Details Screen
-
-\[Screenshot of the Product Details Screen with reviews]
-
-
-
-5\. Cart Screen
-
-\[Screenshot of the Cart Screen with items]
-
-
-
-6\. Checkout Screen
-
-\[Screenshot of the Checkout Screen with shipping and payment details]
-
-
-
-7\. Order Confirmation Screen
-
-\[Screenshot of the Order Confirmation Screen]
-
-
-
-8\. Profile Screen
-
-\[Screenshot of the User Profile Screen]
-
-
-
-9\. My Orders Screen
-
-\[Screenshot of the My Orders history screen]
 
