@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ActivityIndicator, ScrollView, TouchableOpacity, TextInput, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
@@ -9,11 +9,10 @@ import ProductCard from '../../components/ProductCard';
 import { theme } from '../../constants/theme';
 import { Product } from '../../types';
 import { useAuth } from '../../contexts/AuthContext';
-// The logo import is no longer needed for this screen
 
 const categories = ['All', 'Electronics', 'Books', 'Clothing', 'Home Goods'];
 
-const ListHeaderComponent = ({ searchQuery, setSearchQuery, selectedCategory, setSelectedCategory }: any) => {
+const ListHeaderComponent = ({ searchQuery, setSearchQuery, selectedCategory, setSelectedCategory, user }: any) => {
     const { width } = useWindowDimensions();
     const headerHeight = 130;
 
@@ -111,7 +110,7 @@ export default function HomeScreen() {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container} edges={['top']}>
             <FlatList
                 ListHeaderComponent={<ListHeaderComponent 
                     searchQuery={searchQuery}
@@ -128,7 +127,7 @@ export default function HomeScreen() {
                 ListEmptyComponent={<Text style={styles.emptyText}>No products found.</Text>}
                 keyboardShouldPersistTaps="handled"
             />
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -136,13 +135,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: theme.colors.background,
-        paddingTop: 50,
     },
     wavyHeaderWrapper: {
+        // This style was missing and has been re-added.
         marginHorizontal: -theme.spacing.m,
     },
     headerContentContainer: {
-        flex: 1,
+        flex: 1, // Changed to flex: 1 to use available space
         justifyContent: 'center',
         paddingHorizontal: theme.spacing.l,
         paddingBottom: 15,
@@ -155,6 +154,13 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         color: 'white',
+        textAlign: 'left',
+    },
+    headerSubtitle: {
+        fontSize: 16,
+        color: 'white',
+        textAlign: 'left',
+        marginTop: 4,
     },
     searchContainer: {
         flexDirection: 'row',

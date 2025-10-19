@@ -91,7 +91,6 @@ export default function ProductDetailsScreen() {
 
     return (
         <SafeAreaView style={styles.container} edges={['top']}>
-            {/* This line hides the default navigation header */}
             <Stack.Screen options={{ headerShown: false }} />
             <WavyHeader>
                 <View style={styles.headerContentContainer}>

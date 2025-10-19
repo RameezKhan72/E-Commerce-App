@@ -96,11 +96,11 @@ export default function CheckoutScreen() {
                 </View>
 
                 <View style={styles.buttonContainer}>
-                    <CustomButton 
+                     <CustomButton 
                         title={isLoading ? "Placing Order..." : `Pay $${total.toFixed(2)}`} 
                         onPress={handleConfirmOrder} 
                         disabled={isLoading}
-                    />
+                     />
                 </View>
             </ScrollView>
         </SafeAreaView>

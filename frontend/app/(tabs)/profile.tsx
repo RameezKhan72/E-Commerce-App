@@ -41,11 +41,60 @@ export default function ProfileScreen() {
         }
     }, [user]);
 
-    const pickImage = async () => { /* ... existing code ... */ };
-    const uploadImage = async (uri: string) => { /* ... existing code ... */ };
-    const handleSaveName = async () => { /* ... existing code ... */ };
-    const handleFeatureAlert = (featureName: string) => { /* ... existing code ... */ };
+    // --- Complete Function Implementations ---
 
+    const pickImage = async () => {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert('Permission Denied', 'Sorry, we need camera roll permissions to make this work!');
+            return;
+        }
+
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [1, 1],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            const uri = result.assets[0].uri;
+            uploadImage(uri);
+        }
+    };
+
+    const uploadImage = async (uri: string) => {
+        const formData = new FormData();
+        formData.append('profileImage', {
+            uri, name: `photo_${Date.now()}.jpg`, type: 'image/jpeg',
+        } as any);
+
+        try {
+            await axios.post(`${API_URL}/users/profile/picture`, formData, {
+                headers: { 'Content-Type': 'multipart/form-data', 'Authorization': `Bearer ${token}` },
+            });
+            await reloadUser(); // Refresh the user data after upload
+            Alert.alert('Success', 'Profile picture updated!');
+        } catch (error) {
+            console.error(error);
+            Alert.alert('Error', 'Failed to upload image.');
+        }
+    };
+
+    const handleSaveName = async () => {
+        try {
+            await axios.put(`${API_URL}/users/profile/name`, { name: newName }, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            await reloadUser(); // Refresh the user data after saving name
+            Alert.alert("Success", "Your name has been updated.");
+            setIsEditingName(false);
+        } catch (error) {
+            console.error(error);
+            Alert.alert("Error", "Failed to update name.");
+        }
+    };
+    
     const handleSavePhone = async () => {
         try {
             await axios.put(`${API_URL}/users/profile/phone`, { phone: newPhone }, {
@@ -58,6 +107,10 @@ export default function ProfileScreen() {
             console.error(error);
             Alert.alert("Error", "Failed to update phone number.");
         }
+    };
+
+    const handleFeatureAlert = (featureName: string) => {
+        Alert.alert("Coming Soon", `The ${featureName} feature is not yet implemented.`);
     };
 
     return (

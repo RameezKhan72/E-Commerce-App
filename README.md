@@ -1,228 +1,129 @@
-﻿This repository contains the complete source code for a full-stack e-commerce mobile application built with React Native (Expo) for the frontend and Node.js (Express) with MongoDB for the backend.
+﻿E-Commerce App (Online Shopping) - Assignment 2
 
-
-
-The application provides a seamless user experience for browsing products, managing a persistent shopping cart, placing orders, and managing user profiles.
-
-
+This repository contains the complete source code for a full-stack e-commerce mobile application built with React Native (Expo), Node.js (Express), and MongoDB.
 
 Repository Structure
 
-
-
-The project is organized into two main directories as per the assignment guidelines:
-
-
-
 ecommerce-app/
-
 ├── frontend/          (React Native Expo app)
-
-├── backend/           (Node.js Express server)
-
+├── backend/           (Express.js server)
+├── screenshots/       (Contains all application screenshots)
 └── README.md
 
 
-
-
-
-Backend Setup
-
-
+How to Run the Application
 
 Prerequisites
 
+Node.js and npm
 
+Expo Go app on your mobile device
 
-Node.js (v18 or later recommended)
+A local MongoDB server installed and running
 
+1. Backend Server Setup
 
+First, set up and run the backend server.
 
-MongoDB: A local MongoDB server instance must be running.
-
-
-
-1\. Installation
-
-
-
-Navigate to the backend directory and install the required dependencies:
-
-
-
+# 1. Navigate to the backend directory
 cd backend
 
+# 2. Install dependencies
 npm install
 
-
-
-
-
-2\. Database Setup
-
-
-
-This project is configured to connect to a local MongoDB instance.
-
-
-
-Connection String: The connection URI is defined in backend/server.js. The default is mongodb://127.0.0.1:27017/ecommerce.
-
-
-
-Ensure MongoDB is Running: Before starting the server, make sure your local MongoDB service is active. On Windows, you can check this in the "Services" application.
-
-
-
-3\. Seed the Database with Products
-
-
-
-To populate the database with initial product data, run the seeder script:
-
-
-
+# 3. (One-time only) Seed the database with product data
 npm run seed
 
-
-
-
-
-This will clear the products collection and insert 10 sample products.
-
-
-
-4\. Running the Backend Server
-
-
-
-To start the backend server, run the following command. The server will run on http://localhost:3000.
-
-
-
+# 4. Start the server (using nodemon for auto-restarts)
 npm run dev
 
 
+The server will be running on http://localhost:3000.
 
+2. Frontend Application Setup
 
+Next, set up and run the React Native Expo frontend.
 
-You should see confirmation messages in your terminal:
+Important: Before starting the frontend, you must update the API configuration to point to your backend server's local IP address.
 
-
-
-Server running on port 3000
-
-MongoDB connected
-
-
-
-
-
-Frontend Setup
-
-
-
-Prerequisites
-
-
-
-Node.js (v18 or later recommended)
-
-
-
-Expo Go App: Install the Expo Go application on your physical Android or iOS device.
-
-
-
-1\. Installation
-
-
-
-Navigate to the frontend directory and install the required dependencies:
-
-
-
-cd frontend
-
-npm install
-
-
-
-
-
-2\. Configure Backend Connection
-
-
-
-The frontend app needs to know your computer's local IP address to communicate with the backend server.
-
-
-
-Find Your IP Address:
-
-
+Find your computer's local IP address.
 
 On Windows, open Command Prompt and run ipconfig.
 
-
-
 On Mac/Linux, open Terminal and run ifconfig.
-
-
 
 Look for the "IPv4 Address" (e.g., 192.168.1.100).
 
+Update the config file:
+
+Open the file: frontend/constants/config.ts.
+
+Replace 'YOUR_COMPUTER_IP' with the IP address you just found.
+
+Now, you can run the app:
+
+# 1. Navigate to the frontend directory
+cd frontend
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the Expo development server
+npx expo start -c
 
 
-Update the Config File: Open the file frontend/constants/config.ts and replace 'YOUR\_CURRENT\_IP' with the IP address you just found.
+A QR code will appear in the terminal. Scan this QR code with the Expo Go app on your mobile phone to launch the application.
 
+Database Setup
 
+This project uses a local MongoDB database.
 
-// Example:
+Connection String: The server connects to mongodb://127.0.0.1:27017/ecommerce.
 
-const API\_URL = '\[http://192.168.1.100:3000/api](http://192.168.1.100:3000/api)';
-
-
-
-
-
-3\. Running the Frontend App
-
-
-
-To start the frontend development server, run the following command:
-
-
-
-npx expo start
-
-
-
-
-
-A QR code will appear in the terminal. Scan this QR code using the Expo Go app on your mobile device to open and run the application.
-
-
+Setup: Ensure your local MongoDB service is running before starting the backend server. The database and collections will be created automatically when the server runs the seeder script for the first time.
 
 Frontend-Backend Communication
 
+The React Native (Expo) frontend uses the axios library to send HTTP requests to the backend for all data operations (e.g., fetching products, logging in, updating the cart).
+
+The Node.js (Express) backend receives these requests, processes them using middleware for authentication, queries the MongoDB database with mongoose, and sends back a JSON response.
+
+User authentication is handled via JSON Web Tokens (JWT), which are sent in the Authorization header of authenticated requests.
+
+Screenshots
 
 
-This application follows a standard client-server architecture:
+Authentication
+
+Login Screen
+![Login Screen](D:\E-Commerce-App\screenshots\login-screen.png)
+
+Signup Screen
+![Signup Screen](D:\E-Commerce-App\screenshots\signup-screen.png)
 
 
+Main Application
 
-The React Native (Expo) frontend acts as the client. It uses the axios library to send HTTP requests (GET, POST, PUT, DELETE) to the backend API endpoints (e.g., /api/products, /api/users/login).
+Home Screen
+![Home Screen](D:\E-Commerce-App\screenshots\home-screen.png)
 
+Product Details
+![Product Details](D:\E-Commerce-App\screenshots\product-details.png)
 
+Cart Screen
+![Cart Screen](D:\E-Commerce-App\screenshots\cart-screen.png)
 
-The Node.js (Express) backend acts as the server. It listens for incoming requests from the frontend, processes them, and interacts with the MongoDB database using mongoose for data operations (fetching, creating, updating, deleting).
+Checkout Screen
+![Checkout Screen](D:\E-Commerce-App\screenshots\checkout-screen.png)
 
+Order Confirmation
+![Order Confirmation](D:\E-Commerce-App\screenshots\order-confirmation.png)
 
+My Orders
 
-Once the database operation is complete, the server sends a JSON response back to the frontend, which then updates its UI to reflect the new data. For example, after a successful login, the server sends a token, which the app saves to navigate the user to the home screen.
+![My Orders](D:\E-Commerce-App\screenshots\my-orders.png)
 
+Profile Screen
 
-
-
+![Profile Screen](D:\E-Commerce-App\screenshots\profile-screen.png)
 

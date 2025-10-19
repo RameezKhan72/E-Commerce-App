@@ -69,7 +69,6 @@ export default function CartScreen() {
                             <Image source={{ uri: item.product.image_url }} style={styles.image} />
                             <View style={styles.itemDetails}>
                                 <Text style={styles.itemName} numberOfLines={2}>{item.product.name}</Text>
-                                {/* Removed "ea." from the price */}
                                 <Text style={styles.itemPrice}>${item.product.price.toFixed(2)}</Text>
                                 <Text style={styles.itemSubtotal}>Subtotal: ${(item.product.price * item.quantity).toFixed(2)}</Text>
                             </View>
@@ -106,7 +105,6 @@ export default function CartScreen() {
         <SafeAreaView style={styles.container} edges={['top']}>
             <WavyHeader>
                 <View style={styles.headerContentContainer}>
-                    {/* Added cart icon and updated title */}
                     <View style={styles.headerTitleContainer}>
                         <Ionicons name="cart" size={28} color="white" style={{ marginRight: 10 }}/>
                         <Text style={styles.headerTitle}>Cart</Text>
@@ -126,6 +124,8 @@ const styles = StyleSheet.create({
     headerContentContainer: {
         width: '100%',
         paddingHorizontal: theme.spacing.l,
+        justifyContent: 'center',
+        flex: 1, 
     },
     headerTitleContainer: {
         flexDirection: 'row',
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.08,
         shadowRadius: 4,
         elevation: 3,
-        position: 'relative', // for absolute positioning of actions
+        position: 'relative',
     },
     image: {
         width: 80,
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
         marginLeft: theme.spacing.m,
     },
     removeButton: {
-        alignSelf: 'flex-start', // Pushes bin to the top
+        alignSelf: 'flex-start',
         padding: 4,
     },
     quantityContainer: {
@@ -220,10 +220,10 @@ const styles = StyleSheet.create({
     },
     footer: {
         backgroundColor: 'white',
-        padding: theme.spacing.m, // Reduced padding
+        padding: theme.spacing.m,
         borderTopWidth: 1,
         borderColor: theme.colors.gray,
-        paddingBottom: 30, // Extra padding for home bar
+        paddingBottom: 30,
     },
     totalContainer: {
         flexDirection: 'row',
