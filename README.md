@@ -96,34 +96,34 @@ Screenshots
 Authentication
 
 Login Screen
-![Login Screen](D:\E-Commerce-App\screenshots\login-screen.png)
+![Login Screen](screenshots\login-screen.png)
 
 Signup Screen
-![Signup Screen](D:\E-Commerce-App\screenshots\signup-screen.png)
+![Signup Screen](screenshots\signup-screen.png)
 
 
 Main Application
 
 Home Screen
-![Home Screen](D:\E-Commerce-App\screenshots\home-screen.png)
+![Home Screen](screenshots\home-screen.png)
 
 Product Details
-![Product Details](D:\E-Commerce-App\screenshots\product-details.png)
+![Product Details](screenshots\product-details.png)
 
 Cart Screen
-![Cart Screen](D:\E-Commerce-App\screenshots\cart-screen.png)
+![Cart Screen](screenshots\cart-screen.png)
 
 Checkout Screen
-![Checkout Screen](D:\E-Commerce-App\screenshots\checkout-screen.png)
+![Checkout Screen](screenshots\checkout-screen.png)
 
 Order Confirmation
-![Order Confirmation](D:\E-Commerce-App\screenshots\order-confirmation.png)
+![Order Confirmation](screenshots\order-confirmation.png)
 
 My Orders
 
-![My Orders](D:\E-Commerce-App\screenshots\my-orders.png)
+![My Orders](screenshots\my-orders.png)
 
 Profile Screen
 
-![Profile Screen](D:\E-Commerce-App\screenshots\profile-screen.png)
+![Profile Screen](screenshots\profile-screen.png)
 
