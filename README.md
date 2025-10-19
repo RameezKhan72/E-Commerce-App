@@ -96,34 +96,44 @@ Screenshots
 Authentication
 
 Login Screen
+
 ![Login Screen](screenshots/login-screen.png)
 
 Signup Screen
+
 ![Signup Screen](screenshots/signup-screen.png)
+
+
+
 
 
 Main Application
 
 Home Screen
-![Home Screen](screenshots\home-screen.png)
+
+![Home Screen](screenshots/home-screen.png)
 
 Product Details
-![Product Details](screenshots\product-details.png)
+
+![Product Details](screenshots/product-details.png)
 
 Cart Screen
-![Cart Screen](screenshots\cart-screen.png)
+
+![Cart Screen](screenshots/cart-screen.png)
 
 Checkout Screen
-![Checkout Screen](screenshots\checkout-screen.png)
+
+![Checkout Screen](screenshots/checkout-screen.png)
 
 Order Confirmation
-![Order Confirmation](screenshots\order-confirmation.png)
+
+![Order Confirmation](screenshots/order-confirmation.png)
 
 My Orders
 
-![My Orders](screenshots\my-orders.png)
+![My Orders](screenshots/my-orders.png)
 
 Profile Screen
 
-![Profile Screen](screenshots\profile-screen.png)
+![Profile Screen](screenshots/profile-screen.png)
 
