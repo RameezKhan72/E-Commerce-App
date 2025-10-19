@@ -96,10 +96,10 @@ Screenshots
 Authentication
 
 Login Screen
-![Login Screen](screenshots\login-screen.png)
+![Login Screen](screenshots/login-screen.png)
 
 Signup Screen
-![Signup Screen](screenshots\signup-screen.png)
+![Signup Screen](screenshots/signup-screen.png)
 
 
 Main Application
