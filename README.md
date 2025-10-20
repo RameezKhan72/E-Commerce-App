@@ -6,7 +6,8 @@ Getting Started
 
 To get a local copy up and running, you can clone the repository.
 
-git clone https://github.com/Raheel2k4/E-Commerce-App
+git clone https://github.com/Raheel2k4/E-Commerce-
+
 cd ecommerce-app
 
 
