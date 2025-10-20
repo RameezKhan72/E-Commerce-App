@@ -2,6 +2,14 @@
 
 This repository contains the complete source code for a full-stack e-commerce mobile application built with React Native (Expo), Node.js (Express), and MongoDB.
 
+Getting Started
+
+To get a local copy up and running, you can clone the repository.
+
+git clone [<your-repository-url>](https://github.com/Raheel2k4/E-Commerce-App)
+cd ecommerce-app
+
+
 Repository Structure
 
 ecommerce-app/
@@ -44,23 +52,9 @@ The server will be running on http://localhost:3000.
 
 Next, set up and run the React Native Expo frontend.
 
-Important: Before starting the frontend, you must update the API configuration to point to your backend server's local IP address.
+Important: Ensure your mobile phone and your computer are connected to the same Wi-Fi network.
 
-Find your computer's local IP address.
-
-On Windows, open Command Prompt and run ipconfig.
-
-On Mac/Linux, open Terminal and run ifconfig.
-
-Look for the "IPv4 Address" (e.g., 192.168.1.100).
-
-Update the config file:
-
-Open the file: frontend/constants/config.ts.
-
-Replace 'YOUR_COMPUTER_IP' with the IP address you just found.
-
-Now, you can run the app:
+The application is configured to automatically detect the IP address of the machine running the Expo server. You do not need to manually edit any configuration files.
 
 # 1. Navigate to the frontend directory
 cd frontend

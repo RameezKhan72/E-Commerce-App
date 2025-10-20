@@ -8,8 +8,6 @@ import {
     TouchableOpacity,
     ActivityIndicator,
     LayoutAnimation,
-    UIManager,
-    Platform
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -19,10 +17,7 @@ import WavyHeader from '../../components/WavyHeader';
 import { theme } from '../../constants/theme';
 import { Ionicons } from '@expo/vector-icons';
 
-// Enable LayoutAnimation for Android
-if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
-    UIManager.setLayoutAnimationEnabledExperimental(true);
-}
+// The deprecated block for enabling LayoutAnimation on Android has been removed.
 
 export default function CartScreen() {
     const { items, total, loading, removeFromCart, updateQuantity } = useCart();
@@ -38,7 +33,6 @@ export default function CartScreen() {
     };
 
     const handleUpdate = (productId: string, newQuantity: number) => {
-        // Prevent quantity from going below 1
         if (newQuantity < 1) {
             return;
         }
